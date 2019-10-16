@@ -48,7 +48,7 @@
       <v-card-actions>
         <v-spacer></v-spacer>
         <slot name="actions" :parent="this">
-          <v-btn color="grey lighten-1" text @click.native="clearHandler">{{ clearText }}</v-btn>
+          <v-btn color="grey lighten-1" text v-if="withClear" @click.native="clearHandler">{{ clearText }}</v-btn>
           <v-btn color="green darken-1" text @click="okHandler">{{ okText }}</v-btn>
         </slot>
       </v-card-actions>
@@ -103,6 +103,10 @@ export default {
     clearText: {
       type: String,
       default: DEFAULT_CLEAR_TEXT
+    },
+    withClear: {
+      type: Boolean,
+      default: true
     },
     okText: {
       type: String,
